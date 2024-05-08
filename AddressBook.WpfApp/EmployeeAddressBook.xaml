@@ -1,0 +1,103 @@
+﻿<Window x:Class="AddressBook.WpfApp.EmployeeAddressBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBook.WpfApp"
+        mc:Ignorable="d"
+        Title="Adresár zamestnancov" Height="500" Width="450">
+    <Grid Name="TileGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Content="Otvoriť..." Margin="10, 10, 0, 0" Click="OtvoritButton_Click" Name="OtvoritButton"></Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="Meno/Priezvisko"></Label>
+            <TextBox Grid.Row="1" Margin="10, 0, 10, 0" Name="menoTextBox"></TextBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Pozícia"></Label>
+            <ComboBox Grid.Row="1" Name ="poziciaComboBox" Margin="10, 0, 10, 0"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Pracovisko"></Label>
+            <ComboBox Grid.Row="1" Name ="pracoviskoComboBox" Margin="10, 0, 10, 0"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Vyhladať zamestnanca" Margin="10, 10, 0, 10" HorizontalAlignment="Left" Padding="10, 5, 10 , 5" Click="VyhladatButton_Click" ></Button>
+            <Button Grid.Column="1" Content="Resetovať vyhľadávanie" Margin="10, 10, 0, 10" HorizontalAlignment="Left" Padding="10, 5, 10, 5" Click="ResetButton_Click"></Button>
+        </Grid>
+        <Grid Grid.Row="5">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListBox Name="SearchResultListView">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel>
+                                    <TextBlock>
+                                        <Run Text="{Binding Name}"></Run>
+                                        <LineBreak></LineBreak>
+                                        <Run Text="Pracovisko: "></Run>
+                                        <Run Text="{Binding MainWorkplace}"></Run>
+                                        <LineBreak></LineBreak>
+                                        <Run Text="Miestnosť: "></Run>
+                                        <Run Text="{Binding Room}"></Run>
+                                        <LineBreak></LineBreak>
+                                        <Run Text="Telefón: "></Run>
+                                        <Run Text="{Binding Phone}"></Run>
+                                        <LineBreak></LineBreak>
+                                        <Run Text="Email: "></Run>
+                                        <Run Text="{Binding Email}"></Run>
+                                        <LineBreak></LineBreak>
+                                        <Run Text="Pozícia: "></Run>
+                                        <Run Text="{Binding Position}"></Run>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="6" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Pocet vyhladanych zamestnancov: " HorizontalAlignment="Left" VerticalAlignment="Center" ></Label>
+                <Label Grid.Column="1" Name="CountLabel" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            </Grid>
+                
+            <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Exportovať vyhľadávanie do CSV" Padding="10" Click="ExportButton_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>

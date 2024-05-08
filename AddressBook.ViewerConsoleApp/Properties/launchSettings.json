@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AddressBook.ViewerConsoleApp": {
+      "commandLineArgs": " --output employeesout.csv --input C:\\Users\\simur\\source\\repos\\AddressBook\\AddressBook.ViewerConsoleApp\\employees.json --name bach",
+      "commandName": "Project"
+    }
+  }
+}
