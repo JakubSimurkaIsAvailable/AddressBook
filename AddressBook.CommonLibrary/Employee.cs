@@ -10,10 +10,10 @@ namespace AddressBook.CommonLibrary
 {
     public record Employee : INotifyPropertyChanged
     {
-        private string? _name;
-        private string? _position;
+        private string _name = "";
+        private string _position = "";
         private string? _phone;
-        private string? _email;
+        private string _email = "";
         private string? _room;
         private string? _mainWorkplace;
         private string? _workplace;
@@ -35,7 +35,7 @@ namespace AddressBook.CommonLibrary
         /// <summary>
         /// Name of the employee
         /// </summary>
-        public string? Name
+        public string Name
         {
             get => _name;
             set
@@ -45,23 +45,23 @@ namespace AddressBook.CommonLibrary
                     _name = value;
                     OnPropertyChanged(_name);
                 }
-                
+
             }
         }
         /// <summary>
         /// Position of the employee
         /// </summary>
-        public string? Position 
-        { 
+        public string Position
+        {
             get => _position;
             set
             {
                 if (_position != value)
                 {
-                    _position = value; 
+                    _position = value;
                     OnPropertyChanged(_position);
                 }
-                
+
             }
         }
 
@@ -84,7 +84,7 @@ namespace AddressBook.CommonLibrary
         /// <summary>
         /// Email of the employee
         /// </summary>
-        public string? Email
+        public string Email
         {
             get => _email;
             set
@@ -94,7 +94,7 @@ namespace AddressBook.CommonLibrary
                     _email = value;
                     OnPropertyChanged(_email);
                 }
-               
+
             }
         }
 
@@ -127,7 +127,7 @@ namespace AddressBook.CommonLibrary
                     _mainWorkplace = value;
                     OnPropertyChanged(_mainWorkplace);
                 }
-                
+
             }
         }
 
@@ -146,6 +146,6 @@ namespace AddressBook.CommonLibrary
                 }
             }
         }
-        
+
     }
 }

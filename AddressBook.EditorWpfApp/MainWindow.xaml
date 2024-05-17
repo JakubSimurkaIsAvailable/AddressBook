@@ -42,15 +42,15 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Content="Pridať..." Margin="5" Name ="AddButton"></Button>
-            <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Content="Editovať..." Margin="5" IsEnabled="False" Name="EditButton"></Button>
-            <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Content="Odstrániť" Margin="5" IsEnabled="False" Name="RemoveButton"></Button>
+            <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Content="Pridať..." Margin="5" Name ="AddButton" Click="AddClick"></Button>
+            <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Content="Editovať..." Margin="5" IsEnabled="False" Name="EditButton" Click="EditClick"></Button>
+            <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Content="Odstrániť" Margin="5" IsEnabled="False" Name="RemoveButton" Click="RemoveClick"></Button>
             <Label Grid.Row="1" Grid.Column="3" Content="Počet:" HorizontalAlignment ="Right" VerticalAlignment="Center"></Label>
-            <Label Grid.Row="1" Grid.Column="4" Content="0" HorizontalAlignment ="Left" VerticalAlignment="Center"></Label>
-            <Button Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="10" Margin="5" Content="Vyhľadávať" Click="SearchButton_Click"></Button>
+            <Label Grid.Row="1" Grid.Column="4" Content="0" HorizontalAlignment ="Left" VerticalAlignment="Center" Name="CountLabel"></Label>
+            <Button Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="10" Margin="5" Content="Vyhľadávať" Click="SearchButton_Click" Name="SearchButton"></Button>
         </Grid>
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
-            <ListView Name="EmployeesListView" SelectionChanged="EmployeesListView_SelectionChanged">
+            <ListView Name="EmployeesListView" SelectionChanged="EmployeesListView_SelectionChanged" SelectionMode="Single" SelectedItem="{Binding SelectedEmployee}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Zamestnanec" DisplayMemberBinding="{Binding Name}" Width="250" ></GridViewColumn>

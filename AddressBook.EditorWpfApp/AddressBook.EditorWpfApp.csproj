@@ -9,8 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\cat.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AddressBook.CommonLibrary\AddressBook.CommonLibrary.csproj" />
     <ProjectReference Include="..\AddressBook.WpfApp\AddressBook.WpfApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\cat.jpg" />
   </ItemGroup>
 
 </Project>

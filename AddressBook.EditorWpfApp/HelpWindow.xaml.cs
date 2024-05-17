@@ -11,35 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using AddressBook.CommonLibrary;
 
 namespace AddressBook.EditorWpfApp
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for HelpWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class HelpWindow : Window
     {
-        public bool SaveChanges { get; set; }
-        public Window1()
+        public HelpWindow()
         {
-            SaveChanges = false;
             InitializeComponent();
-            
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SaveChanges = true;
-            Close();
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            SaveChanges = false;
             Close();
         }
     }
-
-    
 }

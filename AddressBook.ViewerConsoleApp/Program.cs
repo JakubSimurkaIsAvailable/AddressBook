@@ -13,8 +13,8 @@ namespace AddressBook.ViewerConsoleApp
         /// <param name="position"></param>
         /// <param name="mainWorkplace"></param>
         /// <param name="name"></param>
-        static void Main(string? input, string? output, string position = null,
-            string mainWorkplace = null, string name = null)
+        static void Main(string input = "", string output = "", string position = "",
+            string mainWorkplace = "", string name = "")
         {
             //name = "bach";
             var inputFile = new FileInfo(input);
@@ -22,16 +22,15 @@ namespace AddressBook.ViewerConsoleApp
 
 
             //output = new FileInfo("output.csv");
-            if (input != null)
+            if (input != "")
             {
                 EmployeeList? employeeList = EmployeeList.LoadFromJson(new FileInfo(inputFile.FullName));
                 if (employeeList != null)
                 {
                     SearchResult searchResult = employeeList.Search(mainWorkplace, position, name);
 
-                    if (output != null)
+                    if (output != "")
                     {
-                        
                         SaveToCsv(searchResult, output);
                     }
 
@@ -47,6 +46,14 @@ namespace AddressBook.ViewerConsoleApp
                         Console.WriteLine();
                     }
                 }
+                else
+                {
+                    throw new ArgumentException("Input file is not empty");
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Input file is required");
             }
             
 

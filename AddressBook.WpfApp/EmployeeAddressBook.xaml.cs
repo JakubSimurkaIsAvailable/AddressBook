@@ -21,10 +21,12 @@ namespace AddressBook.WpfApp
     {
         public SearchResult SearchResult { get; set; }
         public int SearchCount { get; set; }
-        private EmployeeList _el;
-        public EmployeeList El { get => _el; set => _el = value; }
+        //private EmployeeList _el;
+        public EmployeeList El { get; set; }
         public EmployeeAddressBook()
         {
+            SearchResult = new SearchResult(new Employee[0]);
+            El = new EmployeeList();
             SearchCount = 0;
             InitializeComponent();
             CountLabel.Content = SearchCount.ToString();
@@ -35,7 +37,7 @@ namespace AddressBook.WpfApp
             OtvoritButton.Visibility = Visibility.Collapsed;
         }
 
-        private void PoziciaComboBox_SelectionLoaded()
+        public void PoziciaComboBox_SelectionLoaded()
         {
             var pos = El.GetPositions().Distinct();
             foreach (var VARIABLE in pos)
@@ -44,7 +46,7 @@ namespace AddressBook.WpfApp
             }
         }
 
-        private void PracoviskoComboBox_SelectionLoaded()
+        public void PracoviskoComboBox_SelectionLoaded()
         {
             var prac = El.GetMainWorkplaces().Distinct();
             foreach (var VARIABLE in prac)
@@ -73,7 +75,7 @@ namespace AddressBook.WpfApp
             dialog.DefaultExt = ".json";
             dialog.Filter = "JSON files (*.json)|*.json";
 
-            bool? result = dialog.ShowDialog();
+            dialog.ShowDialog();
 
             El = EmployeeList.LoadFromJson(new FileInfo(dialog.FileName))!;
             //el[0] = el[0] with { Name = "Janko Hrasko" };

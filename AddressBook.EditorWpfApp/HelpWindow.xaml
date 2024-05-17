@@ -1,0 +1,35 @@
+﻿<Window x:Class="AddressBook.EditorWpfApp.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBook.EditorWpfApp"
+        mc:Ignorable="d"
+        Title="O aplikácii" Height="307" Width="605"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="219*"></ColumnDefinition>
+            <ColumnDefinition Width="386*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image>
+            <Image.Source>
+                <BitmapImage UriSource="/Images/cat.jpg"/>
+            </Image.Source>
+        </Image>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="UNIZA Adresár" FontSize="30" FontStyle ="Italic"></Label>
+            <Label Grid.Row ="1" Content ="Verzia 1.0"></Label>
+            <Label Grid.Row="2" Content="Autor: Jakub Šimurka"></Label>
+            <Label Grid.Row="2" Content="Aplikácia na editovanie a vyhľadávanie zamestnancov" Margin="0,30,0,29" Grid.RowSpan="2"></Label>
+            <Button Grid.Row="4" Content="OK" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="30, 10, 30, 10" Margin=" 5" Click="Button_Click"></Button>
+        </Grid>
+    </Grid>
+</Window>

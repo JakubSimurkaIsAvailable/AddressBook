@@ -8,29 +8,48 @@ namespace AddressBook.CommonLibrary
 {
     public class SearchResult
     {
-       public Employee[] Employees { get; private set; }
+        public Employee[] Employees { get; private set; }
 
-       public SearchResult(Employee[] employees)
-       {
-           Employees = employees;
-       }
+        public SearchResult(Employee[] employees)
+        {
+            Employees = employees;
+        }
 
-       
-       public void SaveToCsv(FileInfo csvFile, string delimeter = "\t")
-       {
-           StringBuilder sb = new StringBuilder();
-           String[] headers = new string[] { "Name", "MainWorkplace","Workplace", "Room", "Phone", "Email", "Position" };
-           sb.AppendLine(String.Join(delimeter, headers));
-           foreach (var employee in Employees)
-           {
+
+        public void SaveToCsv(FileInfo csvFile, string delimeter = "\t")
+        {
+            StringBuilder sb = new StringBuilder();
+            String[] headers = new string[] { "Name", "MainWorkplace", "Workplace", "Room", "Phone", "Email", "Position" };
+            sb.AppendLine(String.Join(delimeter, headers));
+            foreach (var employee in Employees)
+            {
+                if (employee.MainWorkplace == null)
+                {
+                    employee.MainWorkplace = "";
+                }
+
+                if (employee.Workplace == null)
+                {
+                    employee.Workplace = "";
+                }
+
+                if (employee.Room == null)
+                {
+                    employee.Room = "";
+                }
+
+                if (employee.Phone == null)
+                {
+                    employee.Phone = "";
+                }
                 String[] newline = new string[] { employee.Name, employee.MainWorkplace, employee.Workplace, employee.Room, employee.Phone, employee.Email, employee.Position };
                 sb.AppendLine(String.Join(delimeter, newline));
-           }
+            }
 
-           
-           File.AppendAllText(csvFile.FullName, sb.ToString());
-           
-           
-       }
+
+            File.AppendAllText(csvFile.FullName, sb.ToString());
+
+
+        }
     }
 }

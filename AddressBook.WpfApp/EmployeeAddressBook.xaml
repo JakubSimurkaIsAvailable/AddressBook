@@ -59,21 +59,21 @@
                             <Grid>
                                 <StackPanel>
                                     <TextBlock>
-                                        <Run Text="{Binding Name}"></Run>
+                                        <Run Text="{Binding Name}" FontSize="20"></Run>
                                         <LineBreak></LineBreak>
-                                        <Run Text="Pracovisko: "></Run>
+                                        <Run Text="Pracovisko: " FontWeight="Bold"></Run>
                                         <Run Text="{Binding MainWorkplace}"></Run>
                                         <LineBreak></LineBreak>
-                                        <Run Text="Miestnosť: "></Run>
+                                        <Run Text="Miestnosť: " FontWeight="Bold"></Run>
                                         <Run Text="{Binding Room}"></Run>
                                         <LineBreak></LineBreak>
-                                        <Run Text="Telefón: "></Run>
+                                        <Run Text="Telefón: " FontWeight="Bold"></Run>
                                         <Run Text="{Binding Phone}"></Run>
                                         <LineBreak></LineBreak>
-                                        <Run Text="Email: "></Run>
+                                        <Run Text="Email: " FontWeight="Bold"></Run>
                                         <Run Text="{Binding Email}"></Run>
                                         <LineBreak></LineBreak>
-                                        <Run Text="Pozícia: "></Run>
+                                        <Run Text="Pozícia: " FontWeight="Bold"></Run>
                                         <Run Text="{Binding Position}"></Run>
                                     </TextBlock>
                                 </StackPanel>
